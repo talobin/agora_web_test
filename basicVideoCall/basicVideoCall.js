@@ -183,13 +183,13 @@ $("#join-form").submit(async function (e) {
   try {
     if (!client) {
       AgoraRTC.setParameter("USE_XR", true);
-      AgoraRTC.setParameter("SVC", ["vp8"]);
+      AgoraRTC.setParameter("SVC", ["h264"]);
       client = AgoraRTC.createClient({
         mode: "rtc",
-        codec: "vp8"
+        codec: "h264"
       });
       AgoraRTC.setParameter("USE_XR", true);
-      AgoraRTC.setParameter("SVC", ["vp8"]);
+      AgoraRTC.setParameter("SVC", ["h264"]);
       setInterval(logStats, 1000);
     }
     options.channel = $("#channel").val();
@@ -245,7 +245,7 @@ async function join() {
   // Join the channel.
   options.uid = await client.join(options.appid, options.channel, options.token || null, options.uid || null);
   AgoraRTC.setParameter("USE_XR", true)
-  AgoraRTC.setParameter("SVC", ["vp8"])
+  AgoraRTC.setParameter("SVC", ["h264"])
   if (!localTracks.audioTrack) {
     localTracks.audioTrack = await AgoraRTC.createMicrophoneAudioTrack({
       encoderConfig: "music_standard"
