@@ -100,7 +100,7 @@ async function initDevices() {
   }
   if (!localTracks.videoTrack) {
     localTracks.videoTrack = await AgoraRTC.createCameraVideoTrack({
-      encoderConfig: curVideoProfile.value
+      encoderConfig: "1080p_2"
     });
   }
   // get mics
