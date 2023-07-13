@@ -146,7 +146,7 @@ async function changeVideoProfile(label) {
   curVideoProfile = videoProfiles.find(profile => profile.label === label);
   $(".profile-input").val(`${curVideoProfile.detail}`);
   // change the local video track`s encoder configuration
-  localTracks.videoTrack && (await localTracks.videoTrack.setEncoderConfiguration(curVideoProfile.value));
+  localTracks.videoTrack && (await localTracks.videoTrack.setEncoderConfiguration("1080p_2"));
 }
 
 /*
@@ -253,7 +253,7 @@ async function join() {
   }
   if (!localTracks.videoTrack) {
     localTracks.videoTrack = await AgoraRTC.createCameraVideoTrack({
-      encoderConfig: curVideoProfile.value
+      encoderConfig: "1080p_2"
     });
   }
 
